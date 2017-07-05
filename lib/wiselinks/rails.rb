@@ -6,9 +6,9 @@ module Wiselinks
       end
 
       initializer "wiselinks.register_extensions"  do
-        ActionDispatch::Request.send :include, Request
+        ActionDispatch::Request.send :prepend, Request
         ActionController::Base.send :include, ControllerMethods
-        ActionController::Base.send :include, Rendering
+        ActionController::Base.send :prepend, Rendering
         ActionView::Base.send :include, Helpers
       end
 
